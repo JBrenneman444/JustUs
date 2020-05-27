@@ -18,6 +18,8 @@ var Couple = require('./Couple.model');
 app.use(cors());
 
 const PORT = process.env.PORT || 8000;
+const secret = process.env.SECRET || "some secret passphrase here for local development"
+
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/couples',{ // PPL addition
     useNewUrlParser: true,
