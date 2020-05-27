@@ -117,7 +117,7 @@ class App extends React.Component {
   };
 
   getCouples = () => {
-    return fetch(baseURL+ '/couples')
+    return fetch(baseURL+ 'couples')
     .then(data => {
      console.log(data)
      return data.json()
@@ -135,7 +135,7 @@ class App extends React.Component {
 
   getMessages = async () => { // has DELAY for loading screen
     await delay(2000);
-    return fetch(baseURL+ '/messages')
+    return fetch(baseURL+ 'messages')
     .then(data => {
      console.log(data)
      return data.json()
@@ -153,7 +153,7 @@ class App extends React.Component {
   }
 
   getNewMessages = () => { // NO DELAY for NEW messages
-    return fetch(baseURL+ '/messages')
+    return fetch(baseURL+ 'messages')
     .then(data => {
      console.log(data)
      return data.json()
@@ -164,7 +164,9 @@ class App extends React.Component {
         isLoading: false,
         messages: parsedData
        }),
-     err=> console.log(err))
+     err=> {
+       console.log(err)
+      })
   }
 
 componentDidMount = () => {
