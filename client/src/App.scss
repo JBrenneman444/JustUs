@@ -121,6 +121,23 @@ $lessSpacing: .5em;
       }
     }
 
+    .user1,.user2 {
+
+      .message-items {
+        display: flex;
+        justify-content: space-between;
+      
+      }
+      
+      .delete-button {
+        // height:90%;
+        margin-left:.5rem;
+        margin-right:.5rem;
+        cursor: pointer;
+      }
+
+    }
+
     .message.user1 {
       align-self: flex-start;
     }

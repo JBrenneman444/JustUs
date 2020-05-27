@@ -62,9 +62,17 @@ class App extends React.Component {
     console.log(this.state.changingColor)
   }
 
+  toggleLoaderGif = () => {
+    if (this.state.isLoading === true) {
+      this.setState({isLoading: false})
+    } else {
+      this.setState({isLoading: true})
+    }
+    console.log(this.state.isLoading)
+  }
+
   toggleChangeUser = (userName) => {
     this.setState({currentUser: userName})
-    console.log(this.state.currentUser,"is now the currentUser")
   }
 
   toggleUpdateLiked = (updatedMessage) => {
@@ -271,21 +279,30 @@ componentDidMount = () => {
                       (message.createdBy === message.couple.user1.name) ? 'message user1' : 'message user2'
                     }
                     style={{
-                      backgroundColor: (message.createdBy === message.couple.user1.name) ? (message.couple.user1.faveColor) : (message.couple.user2.faveColor)
+                      backgroundColor: (message.createdBy === message.couple.user1.name) ? (message.couple.user1.faveColor) : (message.couple.user2.faveColor),
+                      border: (message.liked) ? ("5px solid") : (''),
+                      borderTop: (message.liked) ? (0) : (''),
+                      borderLeft: (message.liked) ? (0) : (''),
+                      borderRight: (message.liked) ? (0) : (''),
+                      borderColor: (message.liked) ? ("yellow") : ('')
                     }}
                     onDoubleClick={()=> this.toggleUpdateLiked(message)}
                   >
                     <div className={
                       (message.createdBy === message.couple.user1.name) ? 'user1' : 'user2'
                     }>
-                      {message.text}
-                      <Button 
-                        size="sm"
-                        onClick={()=> this.handleDelete(message)}
-                        variant="outline-light"
-                      >
-                        X
-                      </Button>
+
+                      <div className="message-items">
+                        {message.text}
+                        <div 
+                          onClick={()=> this.handleDelete(message)}
+                          className="delete-button"
+                        >
+                          x
+                        </div>
+                      </div>
+
+                      {/* {message.liked ? <>👍</> : ""} */}
                     </div>
                   </div>
                 )
