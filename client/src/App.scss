@@ -1,0 +1,133 @@
+@import "~bootstrap/scss/bootstrap";
+@import "custom";
+
+$justBlack: black;
+$justDark: rgb(41, 41, 41);
+$justGrey: rgb(85, 85, 85);
+$justLight: grey;
+$justWhite: white;
+
+$justSpacing: 1em;
+$lessSpacing: .5em;
+
+.App {
+  text-align: center;
+  background-color: $justWhite;
+  height: 98vh;
+}
+
+.navbar,.navbar-expand-lg,.navbar-dark {
+  background-color: rgb(22, 22, 22);
+
+  #brandLogo {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+}
+
+.container {
+  background-color: transparent;
+  // overflow:visible;
+
+  .all-content {
+    // background-color: green;
+  }
+
+  #form-space {
+    background-color: $justDark;
+    height: 17vh;
+    box-sizing: border-box;
+    text-align: center;
+    // margin-bottom: $justSpacing;
+  }
+}
+
+
+
+.main-left, .main-right {
+  background-color: transparent;
+  min-width:auto;
+}
+
+.main-left {
+  text-align: left;
+
+  .buttons {
+    margin-top: $justSpacing;
+    border-color: $justBlack;
+    background-color: $justBlack;
+  }
+}
+
+.main-right {
+  text-align: right;
+
+  .buttons {
+    margin-top: $justSpacing;
+    border-color: $justBlack;
+    background-color: $justBlack;
+  }
+}
+
+.main-content {
+  
+  display: flex;
+  flex-flow: column nowrap;
+
+  height: 87vh; // why 87 versus 97? layout isnt right
+
+  background-color: $justDark;
+  color: $justWhite;
+
+  .buttons {
+    margin-top: $justSpacing;
+    border-color: $justBlack;
+    background-color: $justBlack;
+  }
+
+  #content-area {
+    margin-top: $justSpacing;
+    margin-bottom: $justSpacing;
+    padding: 0 $lessSpacing $lessSpacing $lessSpacing;
+    background-color: $justBlack;
+
+    overflow: scroll;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    flex: 1 0;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    .message {
+      margin-top: $lessSpacing;
+      width: 48%;
+
+      .user1 {
+        text-align: left;
+      }
+      
+      .user2 {
+        text-align: right;
+      }
+    }
+
+    .message.user1 {
+      align-self: flex-start;
+    }
+    
+    .message.user2 {
+      align-self: flex-end;
+    }
+  }  
+}
+
+.buttons {
+  margin-top: $justSpacing;
+  border-color: $justBlack;
+  background-color: $justBlack;
+}
