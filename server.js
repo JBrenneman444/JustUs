@@ -1,13 +1,15 @@
 require('dotenv').config() // PPL addition
-
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 const cors = require('cors')
 var mongoose = require('mongoose');
+const path = require("path")
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 // required MODELS
 var Message = require('./Message.model');
@@ -15,19 +17,7 @@ var Couple = require('./Couple.model');
 
 app.use(cors());
 
-const PORT = process.env.PORT || 3000;
-
-// mongoose.connect(process.env.MONGODB_URI, { // PPL set up
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-//   });
-
-// mongoose.connect('mongodb://localhost:27017/couples',{ // original JustUs set up
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true}, (err) => {
-//     if(!err)
-//         console.log("Server connected to MongoDB!");
-// });
+const PORT = process.env.PORT || 8000;
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/couples',{ // PPL addition
     useNewUrlParser: true,
@@ -256,10 +246,15 @@ app.delete('/messages/:id', (req,res) => {
     }
 )})
 
-// ROOT welcome page = this works!
+// THIS v WORKS for RUNNING LOCALLY!
 app.get('/', (req,res) => {
     res.send('Home page');
 })
+
+// Right before your app.listen, add this - so EXPRES can serve REACT FILES
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(process.env.PORT, () => { // PPL addition / change
     console.log('App running on PORT', PORT);

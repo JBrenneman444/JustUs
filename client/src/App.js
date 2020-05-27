@@ -19,7 +19,7 @@ import { Container, Navbar, Nav, NavDropdown, Row, Col, Button, ButtonGroup, Dro
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:3000'
+  baseURL = 'http://localhost:8000'
 } else {
   baseURL = 'your heroku back-end url here'
   // baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
@@ -62,7 +62,7 @@ class App extends React.Component {
 
   toggleUpdateLiked = (updatedMessage) => {
       /* fetch(`https://aoe-tribute-api.herokuapp.com/civilizations/${deletedMessage.id}`, { */ // change for heroku
-      fetch(`http://localhost:3000/messages/${updatedMessage._id}`, {
+      fetch(`http://localhost:8000/messages/${updatedMessage._id}`, {
         method: "PUT",
         body: JSON.stringify({liked: !updatedMessage.liked}),
         headers: {
@@ -81,7 +81,7 @@ class App extends React.Component {
   handleAddMessage = async (event, formInputs) => {
     event.preventDefault()
     console.log(formInputs)
-    fetch('http://localhost:3000/messages', { // insert httpS in HEROKU
+    fetch('http://localhost:8000/messages', { // insert httpS in HEROKU
       body: JSON.stringify(formInputs),
       method: 'POST',
       headers: {
@@ -98,7 +98,7 @@ class App extends React.Component {
 
   handleDelete = (deletedMessage) => {    
     /* fetch(`https://aoe-tribute-api.herokuapp.com/civilizations/${deletedMessage.id}`, { */ // change for heroku
-    fetch(`http://localhost:3000/messages/${deletedMessage._id}`, {
+    fetch(`http://localhost:8000/messages/${deletedMessage._id}`, {
       method: "DELETE",
       headers: {
         'Accept': "application/json, text/plain, */*",
