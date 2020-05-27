@@ -38,6 +38,34 @@ mongoose.connection.once('open' , ()=>{ // might need to change to "ON" instead 
     console.log("Mongo CONNECTED!");
 });
 
+app.get("/couples/seed", express.json({type: '*/*'}), (req, res) => {
+    Couple.create(
+      {
+        "user1": {
+            "name": "Jake",
+            "faveColor": "blue",
+            "profilePic": "URL"
+        },
+        "user2": {
+            "name": "Delya",
+            "faveColor": "red",
+            "profilePic": "URL"
+        },
+        "timeTogether": 0.5,
+        "_id": "5ec9bd3bf51c7d308415b604"
+      },
+      (error, data) => {
+        console.log(data);
+        // res.redirect("/couples");
+        if(error)
+            res.status(400).send("Error while seeding")
+        else
+            res.status(200).json(data);
+      }
+    );
+  });
+
+
 app.get("/messages/seed", express.json({type: '*/*'}), (req, res) => {
     Message.create(
       [
