@@ -1,4 +1,4 @@
-# JustUs (Backend)
+# JustUs
 An app for couples.
 
 ## User Stories
