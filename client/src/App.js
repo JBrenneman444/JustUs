@@ -1,5 +1,7 @@
 import React from 'react';
+import BSNavbar from './components/BSNavbar'
 import Add from './components/Add'
+import UpdateColor from './components/UpdateColor'
 
 // imported images
 import jake_bw from './images/jake_bw.png';
@@ -14,12 +16,12 @@ import "./custom.scss";
 
 
 // imported COMPONENTS
-import { Container, Navbar, Nav, NavDropdown, Row, Col, Button, ButtonGroup, DropdownButton, Dropdown, Image } from 'react-bootstrap';
+import { Container, Row, Col, Button, ButtonGroup, DropdownButton, Dropdown, Image } from 'react-bootstrap';
 
 let baseURL = ''
 
 if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:8000'
+  baseURL = 'http://localhost:8000/'
 } else {
   baseURL = 'https://just-us-couples-app.herokuapp.com/'
   // EXAMPLE baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
@@ -33,7 +35,7 @@ class App extends React.Component {
   
   state = {
         isLoading: true,
-        changingPic: false,
+        changingColor: false,
         couples: {
           "user1": {
             "name": "",
@@ -51,13 +53,18 @@ class App extends React.Component {
         currentUser: 'Jake'
   }
 
-  handleChangePic = () => {
-    if (this.state.changingPic === false) {
-      this.setState({changingPic: true})
+  toggleChangePic = () => {
+    if (this.state.changingColor === false) {
+      this.setState({changingColor: true})
     } else {
-      this.setState({changingPic: false})
+      this.setState({changingColor: false})
     }
-    console.log(this.state.changingPic)
+    console.log(this.state.changingColor)
+  }
+
+  toggleChangeUser = (userName) => {
+    this.setState({currentUser: userName})
+    console.log(this.state.currentUser,"is now the currentUser")
   }
 
   toggleUpdateLiked = (updatedMessage) => {
@@ -179,34 +186,8 @@ componentDidMount = () => {
     return (
       <div className="App">
           
-            {/* NAVBAR */}
-            <Navbar 
-              collapseOnSelect
-              expand="lg" 
-              variant="dark"
-            >
-              <Navbar.Brand href="#home" id="brandLogo">JustUs.com</Navbar.Brand>
-              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-              <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto">
-                  <Nav.Link href="#features">Link</Nav.Link>
-                  <Nav.Link href="#pricing">Link</Nav.Link>
-                  <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                  </NavDropdown>
-                </Nav>
-                <Nav>
-                  {/* <Nav.Link href="#deets">More deets</Nav.Link> */}
-                  <Nav.Link eventKey={2} href="#memes">
-                    Settings
-                  </Nav.Link>
-                </Nav>
-              </Navbar.Collapse>
-            </Navbar>
+          {/* Navbar Component - BSNavbar.js */}
+          <BSNavbar/>
 
           <Container className="container">
 
@@ -226,14 +207,18 @@ componentDidMount = () => {
                       borderColor: this.state.couples.user1.faveColor
                     }
                   }
-                  // onClick={()=> console.log(this.state.couples.user1.profilePic)}
-                  onClick={()=> this.handleChangePic()}
-                    // show INPUT for URL
+                  onClick={()=> this.toggleChangePic()}
                   fluid
                 />
-                {this.state.changingPic ?
-                 "Change pic URL" 
-                 
+                {this.state.changingColor ?
+                    
+                    <UpdateColor
+                      couple={this.state.couples}
+                      // messages={this.state.messsages}
+                      currentUser={this.state.currentUser}
+                      // handleAddMessage={this.handleAddMessage}
+                    />
+
                  : null}
 
                 {/* <ButtonGroup 
@@ -243,10 +228,11 @@ componentDidMount = () => {
                   <Button className="buttons" style={{backgroundColor: this.state.couples.user1.faveColor}}>PIC</Button>
                   <Button className="buttons" style={{backgroundColor: this.state.couples.user1.faveColor}}>REM</Button>
                 </ButtonGroup> */}
+                
                 <Button 
                   className="buttons"
                   style={{backgroundColor: this.state.couples.user1.faveColor}}
-                  // onClick={toggleUser()}
+                  onClick={()=> this.toggleChangeUser("Jake")}
                 >
                     Use as Jake
                 </Button>
@@ -274,7 +260,7 @@ componentDidMount = () => {
       <div id="content-area">
               {this.state.messages && this.state.isLoading ? 
               // <h1 style={{marginTop:100,fontFamily:"fantasy"}}>...</h1> // show LOADING GIF until messages load
-              <Image src={loadGIF} height="400"/>
+              <Image src={loadGIF} id="loading-gif"/>
               : 
               this.state.messages.map((message, index) => {
                 // console.log('test')
@@ -349,7 +335,7 @@ componentDidMount = () => {
                 <Button 
                   className="buttons" 
                   style={{backgroundColor: this.state.couples.user2.faveColor,marginTop:12}}
-                  // onClick={toggleUser()}
+                  onClick={()=> this.toggleChangeUser("Delya")}
                 >
                   Use as Delya
                 </Button>

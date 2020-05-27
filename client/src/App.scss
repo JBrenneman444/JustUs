@@ -93,6 +93,11 @@ $lessSpacing: .5em;
     overflow: scroll;
     overflow-x: hidden;
 
+    #loading-gif {
+      margin: auto;
+      width: 20vw;
+    }
+
     ::-webkit-scrollbar {
       display: none;
     }
@@ -130,4 +135,13 @@ $lessSpacing: .5em;
   margin-top: $justSpacing;
   border-color: $justBlack;
   background-color: $justBlack;
+}
+
+#createdBy {
+  display: none;
+}
+
+#tag {
+  // display: none;
+  // width: 10;
 }

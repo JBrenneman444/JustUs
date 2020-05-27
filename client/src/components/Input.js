@@ -1,5 +1,6 @@
 import React from 'react'
-import FormControl from 'react-bootstrap/FormControl';
+// import FormControl from 'react-bootstrap/FormControl';
+import Form from 'react-bootstrap/Form';
 
 const Input = props => {
   const {
@@ -8,12 +9,15 @@ const Input = props => {
     placeholder,
     // text,
     type,
-    value
+    value,
+    as,
+    size,
+    rows
     } = props
     return (
       <>
         {/* <label htmlFor={name}>{text}</label> */}
-        <FormControl  // my INPUT
+        <Form.Control  // my INPUT
           id={name}
           name={name}
           type={type}
@@ -21,9 +25,9 @@ const Input = props => {
           onChange={handleChange}
           placeholder={placeholder}
 
-          as="textarea"
-          size="sm"
-          rows="3"
+          as={as}
+          size={size}
+          rows={rows}
         />
       </>
     )
