@@ -128,7 +128,9 @@ class App extends React.Component {
        isLoading: false,
        couples: parsedData
        }),
-     err=> console.log(err))
+     err => {
+       return console.log(err);
+     })
   }
 
   getMessages = async () => { // has DELAY for loading screen
@@ -145,7 +147,9 @@ class App extends React.Component {
         isLoading: false,
         messages: parsedData
        }),
-     err=> console.log(err))
+     err=> {
+     console.log(err);
+    })
   }
 
   getNewMessages = () => { // NO DELAY for NEW messages
