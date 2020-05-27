@@ -21,8 +21,8 @@ let baseURL = ''
 if (process.env.NODE_ENV === 'development') {
   baseURL = 'http://localhost:8000'
 } else {
-  baseURL = 'your heroku back-end url here'
-  // baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
+  baseURL = 'https://just-us-couples-app.herokuapp.com/'
+  // EXAMPLE baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
 }
 
 console.log('current base URL:', baseURL)
@@ -61,8 +61,9 @@ class App extends React.Component {
   }
 
   toggleUpdateLiked = (updatedMessage) => {
-      /* fetch(`https://aoe-tribute-api.herokuapp.com/civilizations/${deletedMessage.id}`, { */ // change for heroku
-      fetch(`http://localhost:8000/messages/${updatedMessage._id}`, {
+    // fetch(`http://localhost:8000/messages/${updatedMessage._id}`, {  
+    fetch(baseURL+'messages/'+updatedMessage._id, {
+      
         method: "PUT",
         body: JSON.stringify({liked: !updatedMessage.liked}),
         headers: {
@@ -81,7 +82,8 @@ class App extends React.Component {
   handleAddMessage = async (event, formInputs) => {
     event.preventDefault()
     console.log(formInputs)
-    fetch('http://localhost:8000/messages', { // insert httpS in HEROKU
+    // fetch('http://localhost:8000/messages', { // LOCAL
+    fetch(baseURL+'messages/', { // HEROKU - remember, add https
       body: JSON.stringify(formInputs),
       method: 'POST',
       headers: {
@@ -97,8 +99,8 @@ class App extends React.Component {
   }
 
   handleDelete = (deletedMessage) => {    
-    /* fetch(`https://aoe-tribute-api.herokuapp.com/civilizations/${deletedMessage.id}`, { */ // change for heroku
-    fetch(`http://localhost:8000/messages/${deletedMessage._id}`, {
+    // fetch(`http://localhost:8000/messages/${deletedMessage._id}`, {
+      fetch(baseURL+'messages/'+deletedMessage._id, {
       method: "DELETE",
       headers: {
         'Accept': "application/json, text/plain, */*",
