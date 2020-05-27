@@ -16,7 +16,6 @@ class Add extends React.Component {
         text:'',
         tag:'',
         createdBy:''
-        // ,couples: {}
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -34,6 +33,11 @@ class Add extends React.Component {
         }
         if (this.props.message) message.id = this.props.message.id
         this.props.handleAddMessage(event,message)
+        this.setState({
+            text: '',
+            tag: '',
+            createdBy: ''
+          });
     }
 
     componentWillMount() {
@@ -91,36 +95,6 @@ render () {
                 </InputGroup.Append>
 
             </Form>
-
-
-{/* 
-            <Form onSubmit={this.handleSubmit}>
-                <InputGroup> 
-                    <FormControl  // my INPUT
-                        as="textarea"
-                        type="text"
-                        name="newMessage" // ???
-                        value={this.state.newMessage}  // ???
-                        size="sm"
-                        rows="3"
-                        placeholder={
-                        'Send something to ' + this.props.couple.user2.name
-                        }
-                        onChange={this.handleChange}
-                    />
-                </InputGroup>
-
-                <InputGroup.Append>
-                    <Button
-                        variant="outline-light"
-                        size="sm"
-                        type="submit"
-                    >
-                        SEND
-                    </Button>
-                </InputGroup.Append>
-
-            </Form> */}
         </>
     );
 
