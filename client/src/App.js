@@ -20,12 +20,19 @@ import { Container, Row, Col, Button, ButtonGroup, DropdownButton, Dropdown, Ima
 
 let baseURL = ''
 
-if (process.env.NODE_ENV === 'development') {
-  baseURL = 'http://localhost:8000/'
-} else {
-  baseURL = 'https://just-us-couples-app.herokuapp.com/'
-  // EXAMPLE baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
-}
+// =========================================================================
+// for LOCAL -- UNCOMMENT THIS: <========================================
+baseURL = 'http://localhost:8000/'
+
+// =====================================================================================
+// // to set up for HEROKU -- UNCOMMENT THIS: <========================================
+
+// if (process.env.NODE_ENV === 'development') {
+//   baseURL = 'http://localhost:8000/'
+// } else {
+//   baseURL = 'https://just-us-couples-app.herokuapp.com/'
+//   // EXAMPLE baseURL = 'https://fathomless-sierra-68956.herokuapp.com'
+// }
 
 console.log('current base URL:', baseURL)
 
