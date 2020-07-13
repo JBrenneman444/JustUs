@@ -167,15 +167,14 @@ img.img-fluid {
   border-top:0;
 }
 
+button.btn.btn-outline-light.btn-sm {
+  width: 100%;
+}  
+
 @media all and (orientation:landscape) {  
 }
 
 @media all and (max-device-width : 789px) and (orientation:portrait) {
-  
-  button.btn.btn-outline-light.btn-sm {
-    width: 100%;
-  }  
-
 }
 
 @media all and (max-device-width : 582px) and (orientation:portrait) {
@@ -191,6 +190,11 @@ img.img-fluid {
     margin-bottom: 1vh;
   }
 
+  button.btn.btn-outline-light.btn-sm {
+    width: 100%;
+    margin-left: 2vw;
+    margin-right: 2vw;
+  }
 }
 
 @media all and (max-device-width : 425px) and (orientation:portrait) {
