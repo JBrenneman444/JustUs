@@ -91,7 +91,7 @@ app.get("/messages/seed", express.json({type: '*/*'}), (req, res) => {
         },
         {
             createdBy: "Jake",
-            text: "wasnt it for my charming with or something?",
+            text: "wasnt it for my charming wit or something?",
             tag: "message"
         },
         {
