@@ -10,6 +10,10 @@ $justWhite: white;
 $justSpacing: 1em;
 $lessSpacing: .5em;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   text-align: center;
   background-color: $justWhite;
@@ -89,6 +93,7 @@ $lessSpacing: .5em;
     margin-bottom: $justSpacing;
     padding: 0 $lessSpacing $lessSpacing $lessSpacing;
     background-color: $justBlack;
+    scrollbar-width: none; /* Firefox */
 
     overflow: scroll;
     overflow-x: hidden;
@@ -96,10 +101,6 @@ $lessSpacing: .5em;
     #loading-gif {
       margin: auto;
       width: 20vw;
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
     }
 
     flex: 1 0;
