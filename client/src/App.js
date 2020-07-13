@@ -358,7 +358,7 @@ componentDidMount = () => {
                 </ButtonGroup> */}
                 <Button 
                   className="buttons" 
-                  style={{backgroundColor: this.state.couples.user2.faveColor,marginTop:12}}
+                  style={{backgroundColor: this.state.couples.user2.faveColor}}
                   onClick={()=> this.toggleChangeUser("Delya")}
                 >
                   Use as Delya

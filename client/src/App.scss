@@ -165,7 +165,10 @@ $lessSpacing: .5em;
 @media all and (orientation:landscape) {  
 }
 
-@media all and (max-device-width : 789px) and (orientation:portrait) {  
+@media all and (max-device-width : 789px) and (orientation:portrait) {
+  button.btn.btn-outline-light.btn-sm {
+    width: 100%;
+  }  
 }
 
 @media all and (max-device-width : 582px) and (orientation:portrait) {
@@ -178,22 +181,15 @@ $lessSpacing: .5em;
   }
 
   .buttons.btn.btn-primary {
+    margin-top: 0;
+    border-radius: 0rem 0rem 0.5rem 0.5rem;
     padding-left: 2vw;
     padding-right: 2vw;
   }
 
   .main-content #content-area .message {
     width: unset;
-  }
-
-  /*
-  button, [type="button"], [type="reset"], [type="submit"] {
-    width: 100%;
-  }
-  */
-  
-  button.btn.btn-outline-light.btn-sm {
-    width: 100%;
+    font-size: small;
   }
 }
 
