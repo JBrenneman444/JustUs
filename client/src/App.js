@@ -217,8 +217,8 @@ componentDidMount = () => {
                   width="200px"
                   style={
                     {
-                      border:"5px solid",
-                      borderTop: 0,
+                      // border:"5px solid",
+                      // borderTop: 0,
                       borderColor: this.state.couples.user1.faveColor
                     }
                   }
@@ -344,8 +344,8 @@ componentDidMount = () => {
                   width="200px"
                   style={
                     {
-                      border:"5px solid",
-                      borderTop: 0,
+                      // border:"5px solid",
+                      // borderTop: 0,
                       borderColor: this.state.couples.user2.faveColor
                     }
                   }
