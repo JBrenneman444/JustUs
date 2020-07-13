@@ -154,15 +154,54 @@ $lessSpacing: .5em;
   background-color: $justBlack;
 }
 
-#tag {
-  display: none;
-}
-
 #createdBy {
   display: none;
 }
 
 #tag {
-  // display: none;
-  // width: 10;
+  display: none;
 }
+
+@media all and (orientation:landscape) {  
+}
+
+@media all and (max-device-width : 789px) and (orientation:portrait) {  
+}
+
+@media all and (max-device-width : 582px) and (orientation:portrait) {
+}
+
+@media all and (max-device-width : 425px) and (orientation:portrait) {
+  .main-left.col, .main-right.col {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .buttons.btn.btn-primary {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+
+  .main-content #content-area .message {
+    width: unset;
+  }
+
+  /*
+  button, [type="button"], [type="reset"], [type="submit"] {
+    width: 100%;
+  }
+  */
+  
+  button.btn.btn-outline-light.btn-sm {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+  } 
+} 

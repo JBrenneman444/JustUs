@@ -59,7 +59,7 @@ render () {
                     <Input
                         handleChange={this.handleChange}
                         name={'text'}
-                        placeholder={'Send something to ' + this.props.couple.user2.name}
+                        placeholder={'Send a message'}
                         type={'text'}
                         value={this.state.text}
                         id={'text'}
