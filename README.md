@@ -22,8 +22,7 @@ Heroku Link: https://just-us-couples-app.herokuapp.com/
 ## Struggles
 - I originally started a project with ReactNative and Expo but quickly found I was running into a lot of state issues that I couldn't figure out after 24 hours.
 - Creating a One-to-Many Relationship in Mongoose took a lot of reading and experimenting with various solutions found online.
-- Figuring out how to structure React Bootstrap's form commponents while passing down and lifting state was challenging.
-- Spent a lot of time trying to figure out why I couldn't POST anything in Postman - only to discover I hadn't enabled the Headers "Accept" + "Content-Type" as application/json, in Postman.
+- Figuring out how to structure React Bootstrap's form components while passing down and lifting state was challenging.
 
 ## TODO's / Unresolved Items
 - [ ] User can SORT by Messages, Pictures, etc.
